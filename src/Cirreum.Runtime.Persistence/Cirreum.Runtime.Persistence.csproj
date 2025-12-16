@@ -6,8 +6,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Cirreum.Persistence.Azure" Version="1.0.9" />
-		<PackageReference Include="Cirreum.Runtime.ServiceProvider" Version="1.0.1" />
+		<PackageReference Include="Cirreum.Persistence.Azure" Version="1.0.10" />
+		<PackageReference Include="Cirreum.Runtime.ServiceProvider" Version="1.0.2" />
 	</ItemGroup>
 
 </Project>
