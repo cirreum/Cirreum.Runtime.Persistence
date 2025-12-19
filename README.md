@@ -10,7 +10,7 @@
 
 ## Overview
 
-**Cirreum.Runtime.Persistence** provides a unified persistence layer configuration for the Cirreum framework. It simplifies database integration by offering a single extension method that automatically registers and configures persistence providers with built-in health checks.
+**Cirreum.Runtime.Persistence** provides a unified persistence layer configuration for the Cirreum framework. It simplifies database integration by offering a single extension method that automatically registers and configures multiple persistence providers with built-in health checks.
 
 ## Installation
 
@@ -33,17 +33,67 @@ var app = builder.Build();
 
 This automatically:
 - Registers Azure Cosmos DB persistence services
+- Registers Dapper SQL Server persistence services
 - Configures health checks for database connectivity
 - Prevents duplicate service registration
 - Integrates with the Cirreum service provider infrastructure
 
+## Supported Providers
+
+| Provider | Package | Database |
+|----------|---------|----------|
+| Azure Cosmos DB | `Cirreum.Persistence.Azure` | NoSQL document database |
+| Dapper SQL | `Cirreum.Persistence.Dapper` | SQL Server relational database |
+
 ## Features
 
 - **Simple Integration**: One method to configure all persistence needs
-- **Azure Cosmos DB Support**: Built-in support for Azure Cosmos DB through `Cirreum.Persistence.Azure`
+- **Multi-Provider Support**: Built-in support for both NoSQL (Cosmos DB) and relational (SQL Server) databases
 - **Health Checks**: Automatic health check registration for monitoring
 - **Duplicate Prevention**: Smart registration prevents service conflicts
 - **Extensible Design**: Built on the Cirreum service provider pattern for easy extension
+
+## Configuration
+
+Configure persistence providers in `appsettings.json`:
+
+```json
+{
+  "ServiceProviders": {
+    "Persistence": {
+      "Azure": {
+        "default": {
+          "Name": "MyCosmosDb",
+          "DatabaseId": "my-database",
+          "OptimizeBandwidth": true,
+          "IsAutoResourceCreationEnabled": true
+        }
+      },
+      "Dapper": {
+        "default": {
+          "Name": "MySqlDb",
+          "UseAzureAdAuthentication": true,
+          "CommandTimeoutSeconds": 30,
+          "HealthOptions": {
+            "Query": "SELECT 1",
+            "Timeout": "00:00:05"
+          }
+        }
+      }
+    }
+  },
+  "ConnectionStrings": {
+    "MyCosmosDb": "AccountEndpoint=https://your-account.documents.azure.com:443/;AccountKey=...",
+    "MySqlDb": "Server=myserver.database.windows.net;Database=MyDb"
+  }
+}
+```
+
+The `Name` property resolves the connection string via `Configuration.GetConnectionString(name)`. For production, store connection strings in Azure Key Vault using the naming convention `ConnectionStrings--{Name}`.
+
+For detailed configuration options, see the individual provider documentation:
+- [Cirreum.Persistence.Azure](https://github.com/cirreum/Cirreum.Persistence.Azure)
+- [Cirreum.Persistence.Dapper](https://github.com/cirreum/Cirreum.Persistence.Dapper)
 
 ## Contribution Guidelines
 
