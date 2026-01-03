@@ -7,7 +7,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Cirreum.Persistence.Azure" Version="1.0.22" />
-		<PackageReference Include="Cirreum.Persistence.Dapper" Version="1.0.10" />
+		<PackageReference Include="Cirreum.Persistence.Dapper" Version="1.0.11" />
 		<PackageReference Include="Cirreum.Runtime.ServiceProvider" Version="1.0.4" />
 	</ItemGroup>
 
