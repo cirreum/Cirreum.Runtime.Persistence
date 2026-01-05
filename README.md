@@ -33,7 +33,7 @@ var app = builder.Build();
 
 This automatically:
 - Registers Azure Cosmos DB persistence services
-- Registers Dapper SQL Server persistence services
+- Registers SQL Server persistence services
 - Configures health checks for database connectivity
 - Prevents duplicate service registration
 - Integrates with the Cirreum service provider infrastructure
@@ -43,7 +43,7 @@ This automatically:
 | Provider | Package | Database |
 |----------|---------|----------|
 | Azure Cosmos DB | `Cirreum.Persistence.Azure` | NoSQL document database |
-| Dapper SQL | `Cirreum.Persistence.Dapper` | SQL Server relational database |
+| Sql Server | `Cirreum.Persistence.SqlServer` | SQL Server relational database |
 
 ## Features
 
@@ -69,10 +69,10 @@ Configure persistence providers in `appsettings.json`:
           "IsAutoResourceCreationEnabled": true
         }
       },
-      "Dapper": {
+      "SqlServer": {
         "default": {
-          "Name": "MySqlDb",
-          "UseAzureAdAuthentication": true,
+          "Name": "MySqlServer",
+          "UseAzureAuthentication": true,
           "CommandTimeoutSeconds": 30,
           "HealthOptions": {
             "Query": "SELECT 1",
@@ -84,7 +84,7 @@ Configure persistence providers in `appsettings.json`:
   },
   "ConnectionStrings": {
     "MyCosmosDb": "AccountEndpoint=https://your-account.documents.azure.com:443/;AccountKey=...",
-    "MySqlDb": "Server=myserver.database.windows.net;Database=MyDb"
+    "MySqlServer": "Server=myserver.database.windows.net;Database=MyDb"
   }
 }
 ```
@@ -93,7 +93,7 @@ The `Name` property resolves the connection string via `Configuration.GetConnect
 
 For detailed configuration options, see the individual provider documentation:
 - [Cirreum.Persistence.Azure](https://github.com/cirreum/Cirreum.Persistence.Azure)
-- [Cirreum.Persistence.Dapper](https://github.com/cirreum/Cirreum.Persistence.Dapper)
+- [Cirreum.Persistence.SqlServer](https://github.com/cirreum/Cirreum.Persistence.SqlServer)
 
 ## Contribution Guidelines
 

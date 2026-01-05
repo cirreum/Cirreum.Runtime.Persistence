@@ -32,10 +32,10 @@ public static class HostExtensions {
 				AzureCosmosInstanceSettings,
 				AzureCosmosHealthCheckOptions>()
 			.RegisterServiceProvider<
-				DapperSqlRegistrar,
-				DapperSqlSettings,
-				DapperSqlInstanceSettings,
-				DapperSqlHealthCheckOptions>();
+				SqlServerRegistrar,
+				SqlServerSettings,
+				SqlServerInstanceSettings,
+				SqlServerHealthCheckOptions>();
 
 		// .RegisterServiceProvider<AWSNoSqlPersistenceRegistrar>();
 
