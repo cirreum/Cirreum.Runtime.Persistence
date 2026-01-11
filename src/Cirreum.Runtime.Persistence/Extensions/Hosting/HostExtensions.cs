@@ -35,9 +35,12 @@ public static class HostExtensions {
 				SqlServerRegistrar,
 				SqlServerSettings,
 				SqlServerInstanceSettings,
-				SqlServerHealthCheckOptions>();
-
-		// .RegisterServiceProvider<AWSNoSqlPersistenceRegistrar>();
+				SqlServerHealthCheckOptions>()
+			.RegisterServiceProvider<
+				SqliteRegistrar,
+				SqliteSettings,
+				SqliteInstanceSettings,
+				SqliteHealthCheckOptions>();
 
 	}
 

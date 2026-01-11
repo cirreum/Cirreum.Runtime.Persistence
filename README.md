@@ -44,6 +44,7 @@ This automatically:
 |----------|---------|----------|
 | Azure Cosmos DB | `Cirreum.Persistence.Azure` | NoSQL document database |
 | Sql Server | `Cirreum.Persistence.SqlServer` | SQL Server relational database |
+| SQLite | `Cirreum.Persistence.SQLite` | SQLite relational database |
 
 ## Features
 
@@ -79,12 +80,23 @@ Configure persistence providers in `appsettings.json`:
             "Timeout": "00:00:05"
           }
         }
+      },
+      "Sqlite": {
+        "default": {
+          "Name": "MySqlite",
+          "CommandTimeoutSeconds": 30,
+          "HealthOptions": {
+            "Query": "SELECT 1",
+            "Timeout": "00:00:05"
+          }
+        }
       }
     }
   },
   "ConnectionStrings": {
     "MyCosmosDb": "AccountEndpoint=https://your-account.documents.azure.com:443/;AccountKey=...",
     "MySqlServer": "Server=myserver.database.windows.net;Database=MyDb"
+    "MySqlite": "Data Source=mydb.sqlite"
   }
 }
 ```
@@ -94,34 +106,15 @@ The `Name` property resolves the connection string via `Configuration.GetConnect
 For detailed configuration options, see the individual provider documentation:
 - [Cirreum.Persistence.Azure](https://github.com/cirreum/Cirreum.Persistence.Azure)
 - [Cirreum.Persistence.SqlServer](https://github.com/cirreum/Cirreum.Persistence.SqlServer)
-
-## Contribution Guidelines
-
-1. **Be conservative with new abstractions**  
-   The API surface must remain stable and meaningful.
-
-2. **Limit dependency expansion**  
-   Only add foundational, version-stable dependencies.
-
-3. **Favor additive, non-breaking changes**  
-   Breaking changes ripple through the entire ecosystem.
-
-4. **Include thorough unit tests**  
-   All primitives and patterns should be independently testable.
-
-5. **Document architectural decisions**  
-   Context and reasoning should be clear for future maintainers.
-
-6. **Follow .NET conventions**  
-   Use established patterns from Microsoft.Extensions.* libraries.
+- [Cirreum.Persistence.SQLite](https://github.com/cirreum/Cirreum.Persistence.SQLite)
 
 ## Versioning
 
 Cirreum.Runtime.Persistence follows [Semantic Versioning](https://semver.org/):
 
 - **Major** - Breaking API changes
-- **Minor** - New features, backward compatible
-- **Patch** - Bug fixes, backward compatible
+- **Minor** - Truly new features, backward compatible
+- **Patch** - Additional implementations, backward compatible
 
 Given its foundational role, major version bumps are rare and carefully considered.
 
