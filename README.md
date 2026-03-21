@@ -49,7 +49,8 @@ This automatically:
 ## Features
 
 - **Simple Integration**: One method to configure all persistence needs
-- **Multi-Provider Support**: Built-in support for both NoSQL (Cosmos DB) and relational (SQL Server) databases
+- **Multi-Provider Support**: Built-in support for both NoSQL (Cosmos DB) and relational (SQL Server, SQLite) databases
+- **Declarative Indexing Policies**: Entity attribute-driven Cosmos DB indexing configuration (included/excluded paths, composite indexes, spatial indexes)
 - **Health Checks**: Automatic health check registration for monitoring
 - **Duplicate Prevention**: Smart registration prevents service conflicts
 - **Extensible Design**: Built on the Cirreum service provider pattern for easy extension

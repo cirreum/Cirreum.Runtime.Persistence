@@ -30,7 +30,8 @@ This is a .NET 10.0 runtime extension library that provides persistence configur
    - Uses marker pattern to prevent duplicate registrations
 
 2. **Dependencies**:
-   - `Cirreum.Persistence.Azure`: Azure Cosmos DB persistence implementation
+   - `Cirreum.Persistence.Azure`: Azure Cosmos DB persistence implementation (supports declarative indexing policies via entity attributes)
+   - `Cirreum.Persistence.NoSql`: NoSQL abstractions including indexing policy attributes (`[IndexingPolicy]`, `[IncludedPath]`, `[ExcludedPath]`, `[CompositeIndex]`, `[SpatialIndex]`)
    - `Cirreum.Runtime.ServiceProvider`: Service provider runtime infrastructure
 
 3. **Build System**:
