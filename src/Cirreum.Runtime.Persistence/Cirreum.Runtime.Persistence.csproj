@@ -6,10 +6,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Cirreum.Persistence.Azure" Version="2.0.5" />
-		<PackageReference Include="Cirreum.Persistence.SQLite" Version="1.0.26" />
-		<PackageReference Include="Cirreum.Persistence.SqlServer" Version="1.0.31" />
-		<PackageReference Include="Cirreum.Runtime.ServiceProvider" Version="1.0.17" />
+		<PackageReference Include="Cirreum.Persistence.Azure" Version="2.0.8" />
+		<PackageReference Include="Cirreum.Persistence.SQLite" Version="1.0.29" />
+		<PackageReference Include="Cirreum.Persistence.SqlServer" Version="1.0.34" />
+		<PackageReference Include="Cirreum.Runtime.ServiceProvider" Version="1.0.18" />
 	</ItemGroup>
 
 </Project>
