@@ -6,9 +6,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Cirreum.Persistence.Azure" Version="2.1.5" />
-		<PackageReference Include="Cirreum.Persistence.SQLite" Version="1.0.35" />
-		<PackageReference Include="Cirreum.Persistence.SqlServer" Version="1.0.40" />
+		<PackageReference Include="Cirreum.Persistence.Azure" Version="3.0.0" />
+		<PackageReference Include="Cirreum.Persistence.SQLite" Version="1.0.36" />
+		<PackageReference Include="Cirreum.Persistence.SqlServer" Version="1.0.41" />
 		<PackageReference Include="Cirreum.Runtime.ServiceProvider" Version="1.0.20" />
 	</ItemGroup>
 
